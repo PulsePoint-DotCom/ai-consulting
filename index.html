@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Consulting — Work Smarter, Scale Faster</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --surface2: #1e293b;
+      --accent: #6366f1;
+      --accent2: #8b5cf6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --green: #10b981;
+      --border: #334155;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10,15,30,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    nav .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .btn-nav:hover { background: var(--accent2); }
+
+    /* Hero */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 60%);
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--accent), var(--accent2), #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99,102,241,0.4); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--surface2); }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat .num { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+    .stat .label { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* About */
+    .about {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .about-text .highlight {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+      border-left: 3px solid var(--accent);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 1.1rem;
+      color: var(--text);
+      font-style: italic;
+    }
+    .about-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .about-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .about-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .about-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Quiz */
+    .quiz-section {
+      padding: 6rem 2rem;
+      background: var(--surface);
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .quiz-progress-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.4s ease;
+    }
+    .quiz-progress-text { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+
+    .quiz-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+    }
+    .quiz-question { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .quiz-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    .quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .quiz-option {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+      color: var(--text);
+      text-align: left;
+      width: 100%;
+    }
+    .quiz-option:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); }
+    .quiz-option.selected { border-color: var(--accent); background: rgba(99,102,241,0.15); }
+    .quiz-option .opt-icon { font-size: 1.4rem; }
+    .quiz-option .opt-text { flex: 1; }
+    .quiz-option .opt-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .quiz-option.selected .opt-check { background: var(--accent); border-color: var(--accent); }
+    .quiz-option.selected .opt-check::after { content: '✓'; color: #fff; font-size: 0.7rem; }
+
+    .quiz-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+    .btn-quiz { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-quiz-back { background: transparent; color: var(--text-muted); }
+    .btn-quiz-back:hover { color: var(--text); }
+    .btn-quiz-next { background: var(--accent); color: #fff; }
+    .btn-quiz-next:hover { background: var(--accent2); }
+    .btn-quiz-next:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* Results */
+    .results { display: none; padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .results.show { display: block; }
+    .results-header { text-align: center; margin-bottom: 4rem; }
+    .results-header .big-check { font-size: 3rem; margin-bottom: 1rem; }
+    .results-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .results-header p { color: var(--text-muted); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .results-col h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .results-col h3 .emoji { font-size: 1.3rem; }
+
+    .result-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+    }
+    .result-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .result-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .result-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .result-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tag {
+      background: rgba(99,102,241,0.15);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .tag.sales { background: rgba(16,185,129,0.15); color: var(--green); }
+    .tag.time { background: rgba(236,72,153,0.15); color: #ec4899; }
+    .result-links { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+    .result-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .result-link:hover { text-decoration: underline; }
+
+    .restart-btn { text-align: center; margin-top: 3rem; }
+
+    /* Features */
+    .features {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+    .feature-card .emoji { font-size: 2rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* CTA */
+    .cta-section {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.12) 0%, transparent 60%);
+    }
+    .cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
+    .cta-section p { color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+      .stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <div class="logo">AI<span>Consulting</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#quiz">Take the Quiz</a></li>
+      <li><a href="#features">Services</a></li>
+      <li><a href="#quiz" class="btn-nav">Start Free Assessment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <h1>The AI Advantage<br><span class="gradient">Your Business Has Been Waiting For</span></h1>
+  <p>Stop leaving money on the table. Stop wasting hours on tasks that should take minutes. We match you with the exact AI tools and strategies that drive real results — no fluff, no learning curve.</p>
+  <div class="hero-actions">
+    <a href="#quiz" class="btn btn-primary">Take the Free Assessment →</a>
+    <a href="#about" class="btn btn-secondary">Learn What We Do</a>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="num">3.5x</div><div class="label">Average ROI our clients see</div></div>
+  <div class="stat"><div class="num">20+ hrs</div><div class="label">Saved per week by automation</div></div>
+  <div class="stat"><div class="num">500+</div><div class="label">AI tools curated & tested</div></div>
+</div>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">The Best AI Pitch You'll Ever Hear</h2>
+      <p>Most businesses are leaving an extra 6 figures on the table — not because they lack talent, but because they haven't found the right AI tools yet. That's exactly what we fix.</p>
+      <p>We built AI Consulting to solve one problem: <strong>connecting businesses to the exact AI solutions that match their goals</strong> — whether that's closing more deals, cutting operational overhead, or both.</p>
+      <p>Take our 2-minute assessment and we'll show you precisely which AI chatbots and articles will move the needle for your specific situation. No guesswork. No expensive consultants. Just results.</p>
+      <div class="highlight">
+        "The businesses winning right now aren't the ones with the biggest budgets — they're the ones using the right AI, in the right places, at the right time."
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="icon">🎯</div>
+        <h3>Precision Match</h3>
+        <p>Not generic advice — AI tools matched to your exact goals</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">⚡</div>
+        <h3>Instant Results</h3>
+        <p>See recommendations in minutes, implement today</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">📈</div>
+        <h3>Sales Focused</h3>
+        <p>AI that actually drives revenue, not just buzzwords</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🧠</div>
+        <h3>Time Saved</h3>
+        <p>Automate the busywork so you focus on growth</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quiz -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-container">
+    <div class="section-label" style="text-align:center;">Free Assessment</div>
+    <h2 class="section-title" style="text-align:center;margin-bottom:3rem;">Find Your AI Strategy in 2 Minutes</h2>
+
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="quiz-progress-text" id="progressText">Question 1 of 4</div>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+      <!-- Questions injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="results" id="results">
+  <div class="results-header">
+    <div class="big-check">✅</div>
+    <h2>Your Personalized AI Strategy</h2>
+    <p>Based on your goals, here are the best AI tools and resources for you.</p>
+  </div>
+  <div class="results-grid">
+    <div class="results-col">
+      <h3><span class="emoji">🤖</span> AI Chatbots For You</h3>
+      <div id="chatbotResults"></div>
+    </div>
+    <div class="results-col">
+      <h3><span class="emoji">📚</span> Recommended Reading</h3>
+      <div id="articleResults"></div>
+    </div>
+  </div>
+  <div class="restart-btn">
+    <button class="btn btn-secondary" onclick="restartQuiz()">↺ Retake Assessment</button>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div class="section-label">Why AI Consulting</div>
+  <h2 class="section-title">Everything You Need to Win With AI</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="emoji">🧪</div>
+      <h3>Curated & Tested</h3>
+      <p>Every tool we recommend has been personally tested by our team. We don't list what we haven't used.</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji">🎯</div>
+      <h3>Goal-Oriented</h3>
+      <p>Other AI lists are overwhelming. We cut through the noise and show you exactly what moves the needle for your situation.</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji">⚡</div>
+      <h3>Quick to Implement</h3>
+      <p>No 6-month projects. Most of our recommendations can be up and running today — some in under an hour.</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji">💰</div>
+      <h3>Sales-First Thinking</h3>
+      <p>We understand that AI for business must drive revenue. Every recommendation ties back to measurable impact.</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji">🔄</div>
+      <h3>Always Updated</h3>
+      <p>The AI landscape moves fast. We continuously update our recommendations as new tools and capabilities emerge.</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji">💬</div>
+      <h3>Human Support</h3>
+      <p>Have questions? Our team is here to help you implement and optimize your AI strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Stop Guessing and Start Growing?</h2>
+  <p>Join hundreds of businesses who've discovered their exact AI formula. The assessment takes 2 minutes — the results last a lifetime.</p>
+  <a href="#quiz" class="btn btn-primary">Take Your Free Assessment →</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 AI Consulting — Helping businesses work smarter with AI</p>
+</footer>
+
+<script>
+const questions = [
+  {
+    question: "What's your primary goal right now?",
+    sub: "Choose the one that matters most to your business today",
+    options: [
+      { icon: "💰", text: "Make more money", value: "sales", label: "sales" },
+      { icon: "⏱️", text: "Save more time", value: "time", label: "time" },
+      { icon: "🚀", text: "Both — grow revenue while cutting costs", value: "both", label: "both" }
+    ]
+  },
+  {
+    question: "What best describes your business?",
+    sub: "This helps us tailor recommendations to your industry",
+    options: [
+      { icon: "🛒", text: "E-commerce / Online Store", value: "ecommerce", label: "ecommerce" },
+      { icon: "💼", text: "Service Business (agency, consulting, freelance)", value: "service", label: "service" },
+      { icon: "🎬", text: "Content Creator / Influencer", value: "creator", label: "creator" },
+      { icon: "🏢", text: "Enterprise / Larger Organization", value: "enterprise", label: "enterprise" },
+      { icon: "🏪", text: "Local Business / Retail", value: "local", label: "local" }
+    ]
+  },
+  {
+    question: "What's your biggest challenge right now?",
+    sub: "Where do you feel the most pain?",
+    options: [
+      { icon: "👥", text: "Getting new customers / Lead generation", value: "leads", label: "leads" },
+      { icon: "⚙️", text: "Too many manual tasks eating my time", value: "productivity", label: "productivity" },
+      { icon: "📊", text: "Making sense of my data / analytics", value: "data", label: "data" },
+      { icon: "💬", text: "Customer service is overwhelming", value: "support", label: "support" },
+      { icon: "🤷", text: "Not sure — just know something could be better", value: "unsure", label: "unsure" }
+    ]
+  },
+  {
+    question: "How familiar are you with AI tools?",
+    sub: "This helps us meet you at the right level",
+    options: [
+      { icon: "🌱", text: "New to AI — I've barely used any tools", value: "beginner", label: "beginner" },
+      { icon: "📚", text: "Some experience — I use a few things here and there", value: "intermediate", label: "intermediate" },
+      { icon: "⚡", text: "Advanced — I actively use AI and want to optimize further", value: "advanced", label: "advanced" }
+    ]
+  }
+];
+
+const answers = {};
+let currentQ = 0;
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  const pct = ((currentQ) / questions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+
+  let html = `<div class="quiz-question">${q.question}</div>`;
+  html += `<div class="quiz-sub">${q.sub}</div>`;
+  html += `<div class="quiz-options">`;
+  q.options.forEach(opt => {
+    const sel = answers[currentQ] === opt.value ? 'selected' : '';
+    html += `<button class="quiz-option ${sel}" onclick="selectAnswer(${currentQ}, '${opt.value}', this)">
+      <span class="opt-icon">${opt.icon}</span>
+      <span class="opt-text">${opt.text}</span>
+      <span class="opt-check"></span>
+    </button>`;
+  });
+  html += `</div>`;
+  html += `<div class="quiz-nav">
+    <button class="btn-quiz btn-quiz-back" onclick="prevQuestion()" ${currentQ === 0 ? 'disabled style="opacity:0.3"' : ''}>← Back</button>
+    <button class="btn-quiz btn-quiz-next" id="nextBtn" onclick="nextQuestion()" ${answers[currentQ] === undefined ? 'disabled style="opacity:0.4"' : ''}>${currentQ === questions.length - 1 ? 'See My Results →' : 'Next →'}</button>
+  </div>`;
+
+  document.getElementById('quizCard').innerHTML = html;
+}
+
+function selectAnswer(qIndex, value, el) {
+  answers[qIndex] = value;
+  document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  if (answers[currentQ] === undefined) return;
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressText').textContent = 'Done!';
+
+  const goal = answers[0]; // sales, time, both
+  const biz = answers[1]; // ecommerce, service, creator, enterprise, local
+  const challenge = answers[2]; // leads, productivity, data, support, unsure
+  const level = answers[3]; // beginner, intermediate, advanced
+
+  const chatbots = getChatbots(goal, biz, challenge, level);
+  const articles = getArticles(goal, biz, challenge, level);
+
+  document.getElementById('chatbotResults').innerHTML = chatbots;
+  document.getElementById('articleResults').innerHTML = articles;
+
+  document.querySelector('.quiz-section').style.display = 'none';
+  const results = document.getElementById('results');
+  results.classList.add('show');
+  results.scrollIntoView({ behavior: 'smooth' });
+}
+
+function getChatbots(goal, biz, challenge, level) {
+  const all = [
+    {
+      name: "Claude for Business",
+      desc: "Strategic thinking, content drafting, and complex problem-solving. Perfect for high-level planning and customer communication.",
+      tags: ["sales", "time"],
+      biz: ["service", "enterprise", "creator"],
+      url: "https://claude.ai",
+      level: ["beginner", "intermediate", "advanced"]
+    },
+    {
+      name: "ChatGPT (Plus)",
+      desc: "Versatile AI assistant for drafting emails, generating copy, brainstorming ideas, and automating customer service responses.",
+      tags: ["sales", "time"],
+      biz: ["ecommerce", "service", "local", "creator"],
+      url: "https://chat.openai.com",
+      level: ["beginner", "intermediate", "advanced"]
+    },
+    {
+      name: "Jasper AI",
+      desc: "Enterprise-grade content creation. Generates marketing copy, email sequences, and sales pages at scale.",
+      tags: ["sales"],
+      biz: ["ecommerce", "service", "local"],
+      url: "https://www.jasper.ai",
+      level: ["intermediate", "advanced"]
+    },
+    {
+      name: "Intercom Fin",
+      desc: "AI-powered customer support bot that resolves 50%+ of tickets instantly. Keeps customers happy and saves your team hours.",
+      tags: ["sales", "time"],
+      biz: ["ecommerce", "service", "enterprise"],
+      url: "https://www.intercom.com/products/fin",
+      level: ["intermediate", "advanced"]
+    },
+    {
+      name: "HubSpot AI CRM",
+      desc: "AI-infused CRM that automates lead scoring, email sequencing, and follow-ups. Turns prospects into customers on autopilot.",
+      tags: ["sales", "time"],
+      biz: ["service", "enterprise", "local"],
+      url: "https://www.hubspot.com",
+      level: ["beginner", "intermediate"]
+    },
+    {
+      name: "Zapier AI",
+      desc: "Connect your apps and automate workflows without code. AI-powered task automation across 6,000+ integrations.",
+      tags: ["time"],
+      biz: ["ecommerce", "service", "enterprise", "local", "creator"],
+      url: "https://zapier.com/ai",
+      level: ["beginner", "intermediate"]
+    },
+    {
+      name: "Notion AI",
+      desc: "Turn your notes into action items, summaries, and drafts instantly. Perfect for content creators and service businesses.",
+      tags: ["time"],
+      biz: ["service", "creator", "enterprise"],
+      url: "https://www.notion.so/ai",
+      level: ["beginner", "intermediate"]
+    },
+    {
+      name: "Midjourney",
+      desc: "AI image generation for stunning marketing visuals, social content, and product imagery — no design skills needed.",
+      tags: ["sales"],
+      biz: ["ecommerce", "creator", "local"],
+      url: "https://www.midjourney.com",
+      level: ["intermediate", "advanced"]
+    },
+    {
+      name: "Gong.io",
+      desc: "AI revenue intelligence that analyzes sales calls, identifies winning patterns, and coaches your team to close more deals.",
+      tags: ["sales"],
+      biz: ["enterprise", "service"],
+      url: "https://www.gong.io",
+      level: ["intermediate", "advanced"]
+    },
+    {
+      name: "Calendly + AI",
+      desc: "Smart scheduling with AI-powered follow-ups, reminder sequences, and booking insights to maximize your calendar.",
+      tags: ["time", "sales"],
+      biz: ["service", "local"],
+      url: "https://calendly.com",
+      level: ["beginner", "intermediate"]
+    },
+    {
+      name: "Beautiful.ai",
+      desc: "AI-powered presentation software that designs slides for you. Close more deals with stunning pitch decks in minutes.",
+      tags: ["sales"],
+      biz: ["service", "enterprise"],
+      url: "https://www.beautiful.ai",
+      level: ["beginner", "intermediate"]
+    },
+    {
+      name: "Copy.ai",
+      desc: "Instantly generate sales copy, social posts, and email sequences. Built for speed — output in seconds, not hours.",
+      tags: ["sales", "time"],
+      biz: ["ecommerce", "service", "local", "creator"],
+      url: "https://www.copy.ai",
+      level: ["beginner", "intermediate"]
+    }
+  ];
+
+  const filtered = all.filter(bot => {
+    const goalMatch = bot.tags.includes(goal) || bot.tags.includes('both') || goal === 'both';
+    const bizMatch = bot.biz.includes(biz) || bot.biz.includes('service');
+    const levelMatch = bot.level.includes(level);
+    return goalMatch && (bizMatch || Math.random() > 0.5);
+  }).slice(0, 4);
+
+  return filtered.map(bot => `
+    <div class="result-card">
+      <h4>${bot.name}</h4>
+      <p>${bot.desc}</p>
+      <div class="result-tags">
+        ${bot.tags.map(t => `<span class="tag ${t === 'sales' ? 'sales' : 'time'}">${t === 'sales' ? '💰 Sales' : '⏱️ Time'}</span>`).join('')}
+      </div>
+      <div class="result-links">
+        <a href="${bot.url}" target="_blank" class="result-link">Visit →</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getArticles(goal, biz, challenge, level) {
+  const all = [
+    {
+      name: "The AI Sales Playbook: 5 Tools That Actually Close Deals",
+      desc: "A practical guide to deploying AI across your entire sales pipeline — from lead gen to follow-up.",
+      tags: ["sales"],
+      url: "#"
+    },
+    {
+      name: "How to Save 20 Hours a Week with AI Automation",
+      desc: "Real strategies from business owners who cut their workload in half using AI workflows.",
+      tags: ["time"],
+      url: "#"
+    },
+    {
+      name: "AI for E-commerce: From Abandoned Carts to Repeat Customers",
+      desc: "Specific AI tactics for online stores — product descriptions, retargeting, customer service, and more.",
+      tags: ["sales", "time"],
+      biz: ["ecommerce"],
+      url: "#"
+    },
+    {
+      name: "The Complete Guide to AI Customer Service in 2026",
+      desc: "How to set up AI support that handles 80% of tickets, keeps customers happy, and costs 90% less.",
+      tags: ["time", "sales"],
+      biz: ["ecommerce", "service", "enterprise"],
+      url: "#"
+    },
+    {
+      name: "Content Creation at 10x Speed: An AI Workflow Guide",
+      desc: "How creators are using AI to produce more content in less time — without sounding robotic.",
+      tags: ["time"],
+      biz: ["creator"],
+      url: "#"
+    },
+    {
+      name: "AI for Local Businesses: Small Budget, Big Results",
+      desc: "Affordable AI tools local shops and service businesses can use today to compete with big brands.",
+      tags: ["sales", "time"],
+      biz: ["local"],
+      url: "#"
+    },
+    {
+      name: "From Leads to Loyal Customers: The AI Conversion Framework",
+      desc: "A step-by-step system for turning cold leads into warm customers using AI-powered nurturing.",
+      tags: ["sales"],
+      url: "#"
+    },
+    {
+      name: "AI Beginners Guide: Start Here (No Tech Skills Required)",
+      desc: "Everything you need to know to start using AI tools today. Plain language, real examples.",
+      tags: ["time"],
+      level: ["beginner"],
+      url: "#"
+    },
+    {
+      name: "The Data-Driven Business: Using AI Analytics Without a Data Team",
+      desc: "How to extract actionable insights from your business data using AI — no spreadsheet skills needed.",
+      tags: ["sales"],
+      biz: ["service", "enterprise"],
+      url: "#"
+    },
+    {
+      name: "Building Your AI Stack: Tools That Work Together",
+      desc: "How to combine AI tools into a seamless system that handles marketing, sales, and operations.",
+      tags: ["sales", "time"],
+      url: "#"
+    }
+  ];
+
+  const filtered = all.filter(a => {
+    const goalMatch = a.tags.includes(goal) || goal === 'both';
+    const bizMatch = !a.biz || a.biz.includes(biz);
+    const levelMatch = !a.level || a.level.includes(level);
+    return goalMatch && bizMatch && levelMatch;
+  }).slice(0, 4);
+
+  return filtered.map(a => `
+    <div class="result-card">
+      <h4>${a.name}</h4>
+      <p>${a.desc}</p>
+      <div class="result-tags">
+        ${a.tags.map(t => `<span class="tag ${t === 'sales' ? 'sales' : 'time'}">${t === 'sales' ? '💰 Sales' : '⏱️ Time'}</span>`).join('')}
+      </div>
+      <div class="result-links">
+        <a href="${a.url}" class="result-link">Read Article →</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function restartQuiz() {
+  for (let k in answers) delete answers[k];
+  currentQ = 0;
+  document.querySelector('.quiz-section').style.display = 'block';
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(renderQuestion, 400);
+}
+
+// Init
+renderQuestion();
+</script>
+</body>
+</html>
