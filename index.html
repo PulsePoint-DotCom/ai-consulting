@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Consulting — Work Smarter, Scale Faster</title>
+  <title>Bacotti.AI - Work Smarter, Scale Faster</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0f1e;
-      --surface: #111827;
-      --surface2: #1e293b;
-      --accent: #6366f1;
-      --accent2: #8b5cf6;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --green: #10b981;
-      --border: #334155;
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --surface2: #eeeeee;
+      --text: #333333;
+      --text-muted: #666666;
+      --border: #dddddd;
     }
 
     body {
@@ -31,7 +28,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(10,15,30,0.9);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -45,25 +42,25 @@
       justify-content: space-between;
       height: 64px;
     }
-    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
-    .logo span { color: var(--accent); }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; color: #444; }
+    .logo span { text-decoration: underline wavy #ff8c00; text-underline-offset: 4px; }
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     nav a:hover { color: var(--text); }
     .btn-nav {
-      background: var(--accent);
+      background: #444;
       color: #fff !important;
       padding: 0.5rem 1.2rem;
       border-radius: 8px;
       font-weight: 600;
     }
-    .btn-nav:hover { background: var(--accent2); }
+    .btn-nav:hover { background: #666; }
 
     /* Hero */
     .hero {
       padding: 10rem 2rem 6rem;
       text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.03) 0%, transparent 60%);
     }
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -73,7 +70,7 @@
       margin-bottom: 1.5rem;
     }
     .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--accent), var(--accent2), #ec4899);
+      background: linear-gradient(135deg, #444, #888);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -99,16 +96,17 @@
       text-decoration: none;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: #444;
       color: #fff;
+      font-weight: 700;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99,102,241,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
     .btn-secondary {
       background: var(--surface);
       color: var(--text);
       border: 1px solid var(--border);
     }
-    .btn-secondary:hover { background: var(--surface2); }
+    .btn-secondary:hover { background: var(--surface2); color: #444; }
 
     /* Stats */
     .stats {
@@ -121,7 +119,7 @@
       flex-wrap: wrap;
     }
     .stat { text-align: center; }
-    .stat .num { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+    .stat .num { font-size: 2.5rem; font-weight: 800; color: #444; }
     .stat .label { color: var(--text-muted); font-size: 0.9rem; }
 
     /* About */
@@ -135,7 +133,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--accent);
+      color: #444;
       margin-bottom: 0.75rem;
     }
     .section-title {
@@ -152,8 +150,8 @@
     }
     .about-text p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
     .about-text .highlight {
-      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
-      border-left: 3px solid var(--accent);
+      background: rgba(0,0,0,0.04);
+      border-left: 3px solid #ccc;
       padding: 1.2rem 1.5rem;
       border-radius: 0 8px 8px 0;
       font-size: 1.1rem;
@@ -179,7 +177,7 @@
     /* Quiz */
     .quiz-section {
       padding: 6rem 2rem;
-      background: var(--surface);
+      background: #fafafa;
     }
     .quiz-container {
       max-width: 700px;
@@ -200,13 +198,13 @@
     }
     .quiz-progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: #444;
       transition: width 0.4s ease;
     }
     .quiz-progress-text { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
 
     .quiz-card {
-      background: var(--bg);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 3rem;
@@ -229,20 +227,20 @@
       text-align: left;
       width: 100%;
     }
-    .quiz-option:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); }
-    .quiz-option.selected { border-color: var(--accent); background: rgba(99,102,241,0.15); }
+    .quiz-option:hover { border-color: #444; background: rgba(0,0,0,0.04); }
+    .quiz-option.selected { border-color: #444; background: rgba(0,0,0,0.08); }
     .quiz-option .opt-icon { font-size: 1.4rem; }
     .quiz-option .opt-text { flex: 1; }
     .quiz-option .opt-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-    .quiz-option.selected .opt-check { background: var(--accent); border-color: var(--accent); }
-    .quiz-option.selected .opt-check::after { content: '✓'; color: #fff; font-size: 0.7rem; }
+    .quiz-option.selected .opt-check { background: #444; border-color: #444; }
+    .quiz-option.selected .opt-check::after { content: 'v'; color: #fff; font-size: 0.7rem; }
 
     .quiz-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
     .btn-quiz { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.95rem; transition: all 0.2s; }
     .btn-quiz-back { background: transparent; color: var(--text-muted); }
     .btn-quiz-back:hover { color: var(--text); }
-    .btn-quiz-next { background: var(--accent); color: #fff; }
-    .btn-quiz-next:hover { background: var(--accent2); }
+    .btn-quiz-next { background: #444; color: #fff; }
+    .btn-quiz-next:hover { background: #666; }
     .btn-quiz-next:disabled { opacity: 0.4; cursor: not-allowed; }
 
     /* Results */
@@ -262,11 +260,7 @@
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
-    .results-col h3 .emoji { font-size: 1.3rem; }
 
     .result-card {
       background: var(--surface);
@@ -276,25 +270,23 @@
       margin-bottom: 1rem;
       transition: all 0.2s;
     }
-    .result-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .result-card:hover { border-color: #444; transform: translateY(-2px); }
     .result-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
     .result-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
     .result-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .tag {
-      background: rgba(99,102,241,0.15);
-      color: var(--accent);
+      background: rgba(0,0,0,0.08);
+      color: #444;
       padding: 0.2rem 0.6rem;
       border-radius: 20px;
       font-size: 0.7rem;
       font-weight: 600;
     }
-    .tag.sales { background: rgba(16,185,129,0.15); color: var(--green); }
-    .tag.time { background: rgba(236,72,153,0.15); color: #ec4899; }
     .result-links { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
     .result-link {
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--accent);
+      color: #444;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -322,15 +314,16 @@
       border-radius: 14px;
       padding: 2rem;
     }
-    .feature-card .emoji { font-size: 2rem; margin-bottom: 1rem; }
+    .feature-card .icon { font-size: 2rem; margin-bottom: 1rem; }
     .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
+    .feature-card:hover { border-color: #444; }
 
     /* CTA */
     .cta-section {
       padding: 6rem 2rem;
       text-align: center;
-      background: radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.12) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.03) 0%, transparent 60%);
     }
     .cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
     .cta-section p { color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
@@ -359,12 +352,12 @@
 <!-- Nav -->
 <nav>
   <div class="inner">
-    <div class="logo">AI<span>Consulting</span></div>
+    <div class="logo">Bacotti<span>.AI</span></div>
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="articles/">Articles</a></li>
       <li><a href="#quiz">Take the Quiz</a></li>
-      <li><a href="#features">Services</a></li>
-      <li><a href="#quiz" class="btn-nav">Start Free Assessment</a></li>
+      <li><a href="contact.html" class="btn-nav">Book a Call</a></li>
     </ul>
   </div>
 </nav>
@@ -372,19 +365,20 @@
 <!-- Hero -->
 <section class="hero" id="home">
   <h1>The AI Advantage<br><span class="gradient">Your Business Has Been Waiting For</span></h1>
-  <p>Stop leaving money on the table. Stop wasting hours on tasks that should take minutes. We match you with the exact AI tools and strategies that drive real results — no fluff, no learning curve.</p>
+  <p>Stop leaving money on the table. Stop wasting hours on tasks that should take minutes. We match you with the exact AI tools and strategies that drive real results - no fluff, no learning curve.</p>
   <div class="hero-actions">
-    <a href="#quiz" class="btn btn-primary">Take the Free Assessment →</a>
+    <a href="#quiz" class="btn btn-primary">Take the Free Assessment</a>
     <a href="#about" class="btn btn-secondary">Learn What We Do</a>
   </div>
 </section>
 
 <!-- Stats -->
 <div class="stats">
-  <div class="stat"><div class="num">3.5x</div><div class="label">Average ROI our clients see</div></div>
-  <div class="stat"><div class="num">20+ hrs</div><div class="label">Saved per week by automation</div></div>
-  <div class="stat"><div class="num">500+</div><div class="label">AI tools curated & tested</div></div>
+  <div class="stat"><div class="num">2-4x</div><div class="label">Projected ROI for early clients</div></div>
+  <div class="stat"><div class="num">15-25 hrs</div><div class="label">Expected time saved per week</div></div>
+  <div class="stat"><div class="num">500+</div><div class="label">AI tools curated and tested</div></div>
 </div>
+<div style="text-align:center;font-size:0.75rem;color:var(--text-muted);padding:0 2rem 2rem;max-width:600px;margin:0 auto;">* Projections based on industry benchmarks for AI-adopting businesses. Results vary based on implementation and business type.</div>
 
 <!-- About -->
 <section class="about" id="about">
@@ -392,31 +386,31 @@
     <div class="about-text">
       <div class="section-label">What We Do</div>
       <h2 class="section-title">The Best AI Pitch You'll Ever Hear</h2>
-      <p>Most businesses are leaving an extra 6 figures on the table — not because they lack talent, but because they haven't found the right AI tools yet. That's exactly what we fix.</p>
-      <p>We built AI Consulting to solve one problem: <strong>connecting businesses to the exact AI solutions that match their goals</strong> — whether that's closing more deals, cutting operational overhead, or both.</p>
+      <p>Most businesses are leaving an extra 6 figures on the table - not because they lack talent, but because they haven't found the right AI tools yet. That's exactly what we fix.</p>
+      <p>We built Bacotti.AI to solve one problem: <strong>connecting businesses to the exact AI solutions that match their goals</strong> - whether that's closing more deals, cutting operational overhead, or both.</p>
       <p>Take our 2-minute assessment and we'll show you precisely which AI chatbots and articles will move the needle for your specific situation. No guesswork. No expensive consultants. Just results.</p>
       <div class="highlight">
-        "The businesses winning right now aren't the ones with the biggest budgets — they're the ones using the right AI, in the right places, at the right time."
+        "The businesses winning right now aren't the ones with the biggest budgets - they're the ones using the right AI, in the right places, at the right time."
       </div>
     </div>
     <div class="about-visual">
       <div class="about-card">
-        <div class="icon">🎯</div>
+        <div class="icon"></div>
         <h3>Precision Match</h3>
-        <p>Not generic advice — AI tools matched to your exact goals</p>
+        <p>Not generic advice - AI tools matched to your exact goals</p>
       </div>
       <div class="about-card">
-        <div class="icon">⚡</div>
+        <div class="icon"></div>
         <h3>Instant Results</h3>
         <p>See recommendations in minutes, implement today</p>
       </div>
       <div class="about-card">
-        <div class="icon">📈</div>
+        <div class="icon"></div>
         <h3>Sales Focused</h3>
         <p>AI that actually drives revenue, not just buzzwords</p>
       </div>
       <div class="about-card">
-        <div class="icon">🧠</div>
+        <div class="icon"></div>
         <h3>Time Saved</h3>
         <p>Automate the busywork so you focus on growth</p>
       </div>
@@ -436,7 +430,6 @@
     </div>
 
     <div class="quiz-card" id="quizCard">
-      <!-- Questions injected by JS -->
     </div>
   </div>
 </section>
@@ -444,59 +437,59 @@
 <!-- Results -->
 <section class="results" id="results">
   <div class="results-header">
-    <div class="big-check">✅</div>
+    <div class="big-check"></div>
     <h2>Your Personalized AI Strategy</h2>
     <p>Based on your goals, here are the best AI tools and resources for you.</p>
   </div>
   <div class="results-grid">
     <div class="results-col">
-      <h3><span class="emoji">🤖</span> AI Chatbots For You</h3>
+      <h3>AI Chatbots For You</h3>
       <div id="chatbotResults"></div>
     </div>
     <div class="results-col">
-      <h3><span class="emoji">📚</span> Recommended Reading</h3>
+      <h3>Recommended Reading</h3>
       <div id="articleResults"></div>
     </div>
   </div>
   <div class="restart-btn">
-    <button class="btn btn-secondary" onclick="restartQuiz()">↺ Retake Assessment</button>
+    <button class="btn btn-secondary" onclick="restartQuiz()">Retake Assessment</button>
   </div>
 </section>
 
 <!-- Features -->
 <section class="features" id="features">
-  <div class="section-label">Why AI Consulting</div>
+  <div class="section-label">Why Bacotti.AI</div>
   <h2 class="section-title">Everything You Need to Win With AI</h2>
   <div class="features-grid">
     <div class="feature-card">
-      <div class="emoji">🧪</div>
-      <h3>Curated & Tested</h3>
+      <div class="icon"></div>
+      <h3>Curated and Tested</h3>
       <p>Every tool we recommend has been personally tested by our team. We don't list what we haven't used.</p>
     </div>
     <div class="feature-card">
-      <div class="emoji">🎯</div>
+      <div class="icon"></div>
       <h3>Goal-Oriented</h3>
       <p>Other AI lists are overwhelming. We cut through the noise and show you exactly what moves the needle for your situation.</p>
     </div>
     <div class="feature-card">
-      <div class="emoji">⚡</div>
+      <div class="icon"></div>
       <h3>Quick to Implement</h3>
-      <p>No 6-month projects. Most of our recommendations can be up and running today — some in under an hour.</p>
+      <p>No 6-month projects. Most of our recommendations can be up and running today - some in under an hour.</p>
     </div>
     <div class="feature-card">
-      <div class="emoji">💰</div>
+      <div class="icon"></div>
       <h3>Sales-First Thinking</h3>
       <p>We understand that AI for business must drive revenue. Every recommendation ties back to measurable impact.</p>
     </div>
     <div class="feature-card">
-      <div class="emoji">🔄</div>
+      <div class="icon"></div>
       <h3>Always Updated</h3>
       <p>The AI landscape moves fast. We continuously update our recommendations as new tools and capabilities emerge.</p>
     </div>
     <div class="feature-card">
-      <div class="emoji">💬</div>
-      <h3>Human Support</h3>
-      <p>Have questions? Our team is here to help you implement and optimize your AI strategy.</p>
+      <div class="icon"></div>
+      <h3>Honest Recommendations</h3>
+      <p>No fluff, no hidden agendas. We recommend what works - not what pays us the most.</p>
     </div>
   </div>
 </section>
@@ -504,13 +497,14 @@
 <!-- CTA -->
 <section class="cta-section">
   <h2>Ready to Stop Guessing and Start Growing?</h2>
-  <p>Join hundreds of businesses who've discovered their exact AI formula. The assessment takes 2 minutes — the results last a lifetime.</p>
-  <a href="#quiz" class="btn btn-primary">Take Your Free Assessment →</a>
+  <p>Join hundreds of businesses who've discovered their exact AI formula. The assessment takes 2 minutes - the results last a lifetime.</p>
+  <a href="#quiz" class="btn btn-primary">Take Your Free Assessment</a>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>© 2026 AI Consulting — Helping businesses work smarter with AI</p>
+  <p>2026 Bacotti.AI - <a href="articles/" style="color:var(--text-muted)">Articles</a> - <a href="contact.html" style="color:var(--text-muted)">Book a 1-on-1 Call</a></p>
+  <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;">Amazon Associate: We may earn a commission from qualifying purchases via Amazon affiliate links (tag: puckwudgie-20).</p>
 </footer>
 
 <script>
@@ -519,40 +513,40 @@ const questions = [
     question: "What's your primary goal right now?",
     sub: "Choose the one that matters most to your business today",
     options: [
-      { icon: "💰", text: "Make more money", value: "sales", label: "sales" },
-      { icon: "⏱️", text: "Save more time", value: "time", label: "time" },
-      { icon: "🚀", text: "Both — grow revenue while cutting costs", value: "both", label: "both" }
+      { icon: "", text: "Make more money", value: "sales" },
+      { icon: "", text: "Save more time", value: "time" },
+      { icon: "", text: "Both - grow revenue while cutting costs", value: "both" }
     ]
   },
   {
     question: "What best describes your business?",
     sub: "This helps us tailor recommendations to your industry",
     options: [
-      { icon: "🛒", text: "E-commerce / Online Store", value: "ecommerce", label: "ecommerce" },
-      { icon: "💼", text: "Service Business (agency, consulting, freelance)", value: "service", label: "service" },
-      { icon: "🎬", text: "Content Creator / Influencer", value: "creator", label: "creator" },
-      { icon: "🏢", text: "Enterprise / Larger Organization", value: "enterprise", label: "enterprise" },
-      { icon: "🏪", text: "Local Business / Retail", value: "local", label: "local" }
+      { icon: "", text: "E-commerce / Online Store", value: "ecommerce" },
+      { icon: "", text: "Service Business (agency, consulting, freelance)", value: "service" },
+      { icon: "", text: "Content Creator / Influencer", value: "creator" },
+      { icon: "", text: "Enterprise / Larger Organization", value: "enterprise" },
+      { icon: "", text: "Local Business / Retail", value: "local" }
     ]
   },
   {
     question: "What's your biggest challenge right now?",
     sub: "Where do you feel the most pain?",
     options: [
-      { icon: "👥", text: "Getting new customers / Lead generation", value: "leads", label: "leads" },
-      { icon: "⚙️", text: "Too many manual tasks eating my time", value: "productivity", label: "productivity" },
-      { icon: "📊", text: "Making sense of my data / analytics", value: "data", label: "data" },
-      { icon: "💬", text: "Customer service is overwhelming", value: "support", label: "support" },
-      { icon: "🤷", text: "Not sure — just know something could be better", value: "unsure", label: "unsure" }
+      { icon: "", text: "Getting new customers / Lead generation", value: "leads" },
+      { icon: "", text: "Too many manual tasks eating my time", value: "productivity" },
+      { icon: "", text: "Making sense of my data / analytics", value: "data" },
+      { icon: "", text: "Customer service is overwhelming", value: "support" },
+      { icon: "", text: "Not sure - just know something could be better", value: "unsure" }
     ]
   },
   {
     question: "How familiar are you with AI tools?",
     sub: "This helps us meet you at the right level",
     options: [
-      { icon: "🌱", text: "New to AI — I've barely used any tools", value: "beginner", label: "beginner" },
-      { icon: "📚", text: "Some experience — I use a few things here and there", value: "intermediate", label: "intermediate" },
-      { icon: "⚡", text: "Advanced — I actively use AI and want to optimize further", value: "advanced", label: "advanced" }
+      { icon: "", text: "New to AI - I've barely used any tools", value: "beginner" },
+      { icon: "", text: "Some experience - I use a few things here and there", value: "intermediate" },
+      { icon: "", text: "Advanced - I actively use AI and want to optimize further", value: "advanced" }
     ]
   }
 ];
@@ -562,7 +556,7 @@ let currentQ = 0;
 
 function renderQuestion() {
   const q = questions[currentQ];
-  const pct = ((currentQ) / questions.length) * 100;
+  const pct = (currentQ / questions.length) * 100;
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressText').textContent = `Question ${currentQ + 1} of ${questions.length}`;
 
@@ -579,8 +573,8 @@ function renderQuestion() {
   });
   html += `</div>`;
   html += `<div class="quiz-nav">
-    <button class="btn-quiz btn-quiz-back" onclick="prevQuestion()" ${currentQ === 0 ? 'disabled style="opacity:0.3"' : ''}>← Back</button>
-    <button class="btn-quiz btn-quiz-next" id="nextBtn" onclick="nextQuestion()" ${answers[currentQ] === undefined ? 'disabled style="opacity:0.4"' : ''}>${currentQ === questions.length - 1 ? 'See My Results →' : 'Next →'}</button>
+    <button class="btn-quiz btn-quiz-back" onclick="prevQuestion()" ${currentQ === 0 ? 'disabled style="opacity:0.3"' : ''}>Back</button>
+    <button class="btn-quiz btn-quiz-next" id="nextBtn" onclick="nextQuestion()" ${answers[currentQ] === undefined ? 'disabled style="opacity:0.4"' : ''}>${currentQ === questions.length - 1 ? 'See My Results' : 'Next'}</button>
   </div>`;
 
   document.getElementById('quizCard').innerHTML = html;
@@ -614,10 +608,10 @@ function showResults() {
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('progressText').textContent = 'Done!';
 
-  const goal = answers[0]; // sales, time, both
-  const biz = answers[1]; // ecommerce, service, creator, enterprise, local
-  const challenge = answers[2]; // leads, productivity, data, support, unsure
-  const level = answers[3]; // beginner, intermediate, advanced
+  const goal = answers[0];
+  const biz = answers[1];
+  const challenge = answers[2];
+  const level = answers[3];
 
   const chatbots = getChatbots(goal, biz, challenge, level);
   const articles = getArticles(goal, biz, challenge, level);
@@ -691,7 +685,7 @@ function getChatbots(goal, biz, challenge, level) {
     },
     {
       name: "Midjourney",
-      desc: "AI image generation for stunning marketing visuals, social content, and product imagery — no design skills needed.",
+      desc: "AI image generation for stunning marketing visuals, social content, and product imagery - no design skills needed.",
       tags: ["sales"],
       biz: ["ecommerce", "creator", "local"],
       url: "https://www.midjourney.com",
@@ -723,7 +717,7 @@ function getChatbots(goal, biz, challenge, level) {
     },
     {
       name: "Copy.ai",
-      desc: "Instantly generate sales copy, social posts, and email sequences. Built for speed — output in seconds, not hours.",
+      desc: "Instantly generate sales copy, social posts, and email sequences. Built for speed - output in seconds, not hours.",
       tags: ["sales", "time"],
       biz: ["ecommerce", "service", "local", "creator"],
       url: "https://www.copy.ai",
@@ -743,10 +737,10 @@ function getChatbots(goal, biz, challenge, level) {
       <h4>${bot.name}</h4>
       <p>${bot.desc}</p>
       <div class="result-tags">
-        ${bot.tags.map(t => `<span class="tag ${t === 'sales' ? 'sales' : 'time'}">${t === 'sales' ? '💰 Sales' : '⏱️ Time'}</span>`).join('')}
+        ${bot.tags.map(t => `<span class="tag">${t === 'sales' ? 'Sales' : 'Time'}</span>`).join('')}
       </div>
       <div class="result-links">
-        <a href="${bot.url}" target="_blank" class="result-link">Visit →</a>
+        <a href="${bot.url}" target="_blank" class="result-link">Visit</a>
       </div>
     </div>
   `).join('');
@@ -756,69 +750,267 @@ function getArticles(goal, biz, challenge, level) {
   const all = [
     {
       name: "The AI Sales Playbook: 5 Tools That Actually Close Deals",
-      desc: "A practical guide to deploying AI across your entire sales pipeline — from lead gen to follow-up.",
+      desc: "A practical guide to deploying AI across your entire sales pipeline - from lead gen to follow-up.",
       tags: ["sales"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "How to Save 20 Hours a Week with AI Automation",
       desc: "Real strategies from business owners who cut their workload in half using AI workflows.",
       tags: ["time"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "AI for E-commerce: From Abandoned Carts to Repeat Customers",
-      desc: "Specific AI tactics for online stores — product descriptions, retargeting, customer service, and more.",
+      desc: "Specific AI tactics for online stores - product descriptions, retargeting, customer service, and more.",
       tags: ["sales", "time"],
       biz: ["ecommerce"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "The Complete Guide to AI Customer Service in 2026",
       desc: "How to set up AI support that handles 80% of tickets, keeps customers happy, and costs 90% less.",
       tags: ["time", "sales"],
       biz: ["ecommerce", "service", "enterprise"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "Content Creation at 10x Speed: An AI Workflow Guide",
-      desc: "How creators are using AI to produce more content in less time — without sounding robotic.",
+      desc: "How creators are using AI to produce more content in less time - without sounding robotic.",
       tags: ["time"],
       biz: ["creator"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "AI for Local Businesses: Small Budget, Big Results",
       desc: "Affordable AI tools local shops and service businesses can use today to compete with big brands.",
       tags: ["sales", "time"],
       biz: ["local"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "From Leads to Loyal Customers: The AI Conversion Framework",
       desc: "A step-by-step system for turning cold leads into warm customers using AI-powered nurturing.",
       tags: ["sales"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "AI Beginners Guide: Start Here (No Tech Skills Required)",
       desc: "Everything you need to know to start using AI tools today. Plain language, real examples.",
       tags: ["time"],
       level: ["beginner"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "The Data-Driven Business: Using AI Analytics Without a Data Team",
-      desc: "How to extract actionable insights from your business data using AI — no spreadsheet skills needed.",
+      desc: "How to extract actionable insights from your business data using AI - no spreadsheet skills needed.",
       tags: ["sales"],
       biz: ["service", "enterprise"],
-      url: "#"
+      url: "articles/"
     },
     {
       name: "Building Your AI Stack: Tools That Work Together",
       desc: "How to combine AI tools into a seamless system that handles marketing, sales, and operations.",
       tags: ["sales", "time"],
-      url: "#"
+      url: "articles/"
+    },
+    {
+      name: "ChatGPT for Business: A Beginner's Complete Guide",
+      desc: "How to use ChatGPT to write emails, generate content, and automate customer service.",
+      tags: ["time", "sales"],
+      url: "articles/"
+    },
+    {
+      name: "AI CRM Tools That Close More Deals Automatically",
+      desc: "How to use AI-powered CRMs to follow up with leads and never lose a sale again.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "The AI Email Marketing Playbook: Write Emails That Convert",
+      desc: "Use AI to write email sequences that turn cold leads into paying customers.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "AI Copywriting Tools Compared: Jasper vs Copy.ai vs ChatGPT",
+      desc: "We tested the top AI copywriting tools so you don't have to. Here's what we found.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Building a Side Hustle with AI Video Creation",
+      desc: "How to create viral AI videos and monetize them on TikTok, Reels, and YouTube Shorts.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Claude for Entrepreneurs: Strategic Planning with AI",
+      desc: "Use Claude to brainstorm, plan, and make better business decisions faster.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Zapier AI: Connect Your Apps and Automate Anything",
+      desc: "Build powerful AI workflows across 6000+ apps without writing a single line of code.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "Best AI Image Generators for Marketing in 2026",
+      desc: "Create stunning visuals for social media, ads, and websites without a designer.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "AI Freelancing in 2026: How to Offer AI Services as a Freelancer",
+      desc: "Position yourself as an AI consultant and charge $500-$5,000 per project.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "The AI Content Strategy Framework: Plan, Create, and Publish at Scale",
+      desc: "Build a content machine with AI that produces consistent, high-quality output.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "HubSpot AI CRM: Automate Your Entire Sales Pipeline",
+      desc: "Use HubSpot AI to automate lead scoring, email sequences, and follow-ups on autopilot.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "AI Presentation Tools: Close More Deals with Stunning Pitch Decks in Minutes",
+      desc: "Create professional presentations in minutes using Beautiful.ai and Canva AI.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "Intercom Fin: AI Support That Handles 50%+ of Tickets Instantly",
+      desc: "How to set up Fin AI to answer customer questions and escalate only when needed.",
+      tags: ["time", "sales"],
+      url: "articles/"
+    },
+    {
+      name: "AI Conversion Optimization: Turn More Visitors Into Buyers",
+      desc: "Use AI to test, optimize, and personalize your website for maximum conversions.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "ChatGPT Plus: Every Feature Worth Using in 2026",
+      desc: "A complete breakdown of ChatGPT Plus features and which ones actually save you time.",
+      tags: ["time", "sales"],
+      url: "articles/"
+    },
+    {
+      name: "The 10 Biggest AI Automation Mistakes Business Owners Make",
+      desc: "Avoid these common pitfalls that cause most AI automation projects to fail.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "Gong.io: AI Sales Coaching That Closes More Deals",
+      desc: "How to use Gong to analyze sales calls, identify winning patterns, and coach your team.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "AI Accounting Automation: Spend Less Time on Books and More Time on Growth",
+      desc: "Use AI to automate invoicing, expense tracking, and financial reporting.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "Higgsfield AI: Create Cinematic Videos Without a Camera",
+      desc: "How to use Higgsfield to create AI-generated videos for social media and ads.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "AI for Hiring: Screen Resumes and Conduct First Interviews With AI",
+      desc: "Use AI to find better candidates, save time on screening, and make faster hires.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "AI Project Management: Keep Projects on Track Without the Stress",
+      desc: "Use AI tools to plan, track, and deliver projects faster with less micromanagement.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "Copy.ai Review: Is It Worth It for Business Owners?",
+      desc: "An honest review of Copy.ai - what it does well, where it falls short, and who it's for.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "AI Marketing Automation: The Complete 2026 Playbook",
+      desc: "Automate your entire marketing workflow from social posts to email campaigns with AI.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Runway Gen-4.5: The AI Video Tool That Changes Everything",
+      desc: "A hands-on guide to Runway Gen-4.5 for creating professional AI-generated videos.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "How to Price Your AI Consulting Services in 2026",
+      desc: "From free calls to $5,000 projects - how to position and price your AI services.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "Jasper AI Review: Enterprise Content Creation at Scale",
+      desc: "We spent a month with Jasper. Here's our honest take on features, pricing, and results.",
+      tags: ["sales"],
+      url: "articles/"
+    },
+    {
+      name: "AI SEO in 2026: Rank Higher on Google Without Hiring an Agency",
+      desc: "Use AI to research keywords, write optimized content, and outrank your competitors.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "AI for LinkedIn: Grow Your Professional Brand and Generate Leads",
+      desc: "Use AI to write posts, engage with your network, and turn LinkedIn into a lead machine.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "CapCut AI: Edit Videos Like a Pro for Free",
+      desc: "The complete guide to CapCut's AI features for creating viral social media videos.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Starting an AI Consulting Business: The Complete Blueprint",
+      desc: "How to build a profitable AI consulting business from scratch in 2026.",
+      tags: ["sales", "time"],
+      url: "articles/"
+    },
+    {
+      name: "Calendly AI: Smart Scheduling That Maximizes Your Calendar",
+      desc: "Set up AI-powered booking, reminders, and follow-ups so you never miss a call.",
+      tags: ["time", "sales"],
+      url: "articles/"
+    },
+    {
+      name: "Notion AI: Turn Notes Into Action Items, Summaries, and Drafts",
+      desc: "Use Notion AI to stay organized, move faster, and never lose an idea again.",
+      tags: ["time"],
+      url: "articles/"
+    },
+    {
+      name: "Midjourney for Marketing: Create Stunning Ads Without a Designer",
+      desc: "A practical guide to using Midjourney to create scroll-stopping visual content.",
+      tags: ["sales"],
+      url: "articles/"
     }
   ];
 
@@ -834,10 +1026,10 @@ function getArticles(goal, biz, challenge, level) {
       <h4>${a.name}</h4>
       <p>${a.desc}</p>
       <div class="result-tags">
-        ${a.tags.map(t => `<span class="tag ${t === 'sales' ? 'sales' : 'time'}">${t === 'sales' ? '💰 Sales' : '⏱️ Time'}</span>`).join('')}
+        ${a.tags.map(t => `<span class="tag">${t === 'sales' ? 'Sales' : 'Time'}</span>`).join('')}
       </div>
       <div class="result-links">
-        <a href="${a.url}" class="result-link">Read Article →</a>
+        <a href="${a.url}" class="result-link">Read Article</a>
       </div>
     </div>
   `).join('');
@@ -852,7 +1044,6 @@ function restartQuiz() {
   setTimeout(renderQuestion, 400);
 }
 
-// Init
 renderQuestion();
 </script>
 </body>
