@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles - Bacotti.AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #ffffff; --surface: #f5f5f5; --surface2: #eeeeee; --text: #000000; --text-muted: #666666; --border: #dddddd; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem; }
+    nav .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; color: #000; }
+    .logo span { text-decoration: underline wavy #ff8c00; text-underline-offset: 4px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn-nav { background: #000; color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
+    .hero { padding: 8rem 2rem 4rem; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+    .articles-grid { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .article-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; text-decoration: none; color: var(--text); display: block; }
+    .article-card:hover { border-color: #000; transform: translateY(-3px); }
+    .article-card .category { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+    .article-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .article-card .read-time { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; display: flex; align-items: center; gap: 0.3rem; }
+    footer { padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a href="/" class="logo">Bacotti<span>.AI</span></a>
+    <div>
+      <a href="/articles/" style="margin-right:1.5rem;">Articles</a>
+      <a href="/#quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+  </div>
+</nav>
+<section class="hero">
+  <h1>AI Articles & Guides</h1>
+  <p>Learn how to use AI to make money, save time, and grow your business. New articles added regularly.</p>
+</section>
+<div class="articles-grid">
+  <a href="how-to-make-money-with-ai-2026.html" class="article-card">
+    <div class="category">Making Money</div>
+    <h3>How to Make Money with AI in 2026: 10 Methods That Actually Work</h3>
+    <p>A practical guide to building income with AI tools, from freelancing to automation.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="chatgpt-for-business-beginners.html" class="article-card">
+    <div class="category">Getting Started</div>
+    <h3>ChatGPT for Business: A Beginner's Complete Guide</h3>
+    <p>How to use ChatGPT to write emails, generate content, and automate customer service.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="save-20-hours-week-ai-automation.html" class="article-card">
+    <div class="category">Time Saving</div>
+    <h3>How to Save 20+ Hours a Week with AI Automation</h3>
+    <p>Real workflows that business owners use to cut their workload in half.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="ai-crm-sales-automation.html" class="article-card">
+    <div class="category">Sales</div>
+    <h3>AI CRM Tools That Close More Deals Automatically</h3>
+    <p>How to use AI-powered CRMs to follow up with leads and never lose a sale again.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="best-ai-image-generators.html" class="article-card">
+    <div class="category">Content Creation</div>
+    <h3>Best AI Image Generators for Marketing in 2026</h3>
+    <p>Create stunning visuals for social media, ads, and websites without a designer.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-email-marketing-guide.html" class="article-card">
+    <div class="category">Email</div>
+    <h3>The AI Email Marketing Playbook: Write Emails That Convert</h3>
+    <p>Use AI to write email sequences that turn cold leads into paying customers.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="ai-copywriting-tools-compared.html" class="article-card">
+    <div class="category">Copywriting</div>
+    <h3>AI Copywriting Tools Compared: Jasper vs Copy.ai vs ChatGPT</h3>
+    <p>We tested the top AI copywriting tools so you don't have to. Here's what we found.</p>
+    <div class="read-time">9 min read</div>
+  </a>
+  <a href="side-hustle-ai-video-creation.html" class="article-card">
+    <div class="category">Side Hustles</div>
+    <h3>Building a Side Hustle with AI Video Creation</h3>
+    <p>How to create viral AI videos and monetize them on TikTok, Reels, and YouTube Shorts.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-customer-service-guide.html" class="article-card">
+    <div class="category">Customer Service</div>
+    <h3>AI Customer Service: Handle 80% of Tickets Without Lifting a Finger</h3>
+    <p>Set up AI support that keeps customers happy and saves your team hours every day.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="claude-for-entrepreneurs.html" class="article-card">
+    <div class="category">Getting Started</div>
+    <h3>Claude for Entrepreneurs: Strategic Planning with AI</h3>
+    <p>Use Claude to brainstorm, plan, and make better business decisions faster.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-ecommerce-automation.html" class="article-card">
+    <div class="category">E-commerce</div>
+    <h3>AI for E-commerce: From Abandoned Carts to Repeat Customers</h3>
+    <p>Specific AI tactics for online stores - product descriptions, retargeting, and more.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="zapier-ai-automation-guide.html" class="article-card">
+    <div class="category">Automation</div>
+    <h3>Zapier AI: Connect Your Apps and Automate Anything</h3>
+    <p>Build powerful AI workflows across 6,000+ apps without writing a single line of code.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="ai-social-media-content-creation.html" class="article-card">
+    <div class="category">Social Media</div>
+    <h3>AI Social Media Content Creation at 10x Speed</h3>
+    <p>How creators use AI to produce more content in less time without sounding robotic.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="building-your-ai-stack.html" class="article-card">
+    <div class="category">Strategy</div>
+    <h3>Building Your AI Stack: Tools That Work Together</h3>
+    <p>How to combine AI tools into a seamless system for marketing, sales, and operations.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="ai-lead-generation-guide.html" class="article-card">
+    <div class="category">Lead Generation</div>
+    <h3>AI Lead Generation: From Cold Outreach to Booked Calls</h3>
+    <p>Use AI to find leads, personalize outreach, and fill your calendar automatically.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="midjourney-marketing-visuals.html" class="article-card">
+    <div class="category">Content Creation</div>
+    <h3>Midjourney for Marketing: Create Stunning Ads Without a Designer</h3>
+    <p>A practical guide to using Midjourney to create scroll-stopping visual content.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-data-analytics-small-business.html" class="article-card">
+    <div class="category">Analytics</div>
+    <h3>AI Analytics for Small Business: Make Data-Driven Decisions Without a Data Team</h3>
+    <p>Extract actionable insights from your business data using AI - no spreadsheet skills needed.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="notion-ai-productivity-guide.html" class="article-card">
+    <div class="category">Productivity</div>
+    <h3>Notion AI: Turn Notes Into Action Items, Summaries, and Drafts</h3>
+    <p>Use Notion AI to stay organized, move faster, and never lose an idea again.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="ai-freelancing-guide-2026.html" class="article-card">
+    <div class="category">Freelancing</div>
+    <h3>AI Freelancing in 2026: How to Offer AI Services as a Freelancer</h3>
+    <p>Position yourself as an AI consultant and charge $500-$5,000 per project.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="ai-content-strategy-guide.html" class="article-card">
+    <div class="category">Content Strategy</div>
+    <h3>The AI Content Strategy Framework: Plan, Create, and Publish at Scale</h3>
+    <p>Build a content machine with AI that produces consistent, high-quality output.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="hubspot-ai-crm-guide.html" class="article-card">
+    <div class="category">Sales</div>
+    <h3>HubSpot AI CRM: Automate Your Entire Sales Pipeline</h3>
+    <p>Use HubSpot AI to automate lead scoring, email sequences, and follow-ups on autopilot.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-presentation-creation.html" class="article-card">
+    <div class="category">Presentations</div>
+    <h3>AI Presentation Tools: Close More Deals with Stunning Pitch Decks in Minutes</h3>
+    <p>Create professional presentations in minutes using Beautiful.ai and Canva AI.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="intercom-fin-ai-support.html" class="article-card">
+    <div class="category">Customer Service</div>
+    <h3>Intercom Fin: AI Support That Handles 50%+ of Tickets Instantly</h3>
+    <p>How to set up Fin AI to answer customer questions and escalate only when needed.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-conversion-optimization.html" class="article-card">
+    <div class="category">Conversion</div>
+    <h3>AI Conversion Optimization: Turn More Visitors Into Buyers</h3>
+    <p>Use AI to test, optimize, and personalize your website for maximum conversions.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="chatgpt-plus-features-guide.html" class="article-card">
+    <div class="category">Getting Started</div>
+    <h3>ChatGPT Plus: Every Feature Worth Using in 2026</h3>
+    <p>A complete breakdown of ChatGPT Plus features and which ones actually save you time.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-business-automation-mistakes.html" class="article-card">
+    <div class="category">Strategy</div>
+    <h3>The 10 Biggest AI Automation Mistakes Business Owners Make</h3>
+    <p>Avoid these common pitfalls that cause most AI automation projects to fail.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="gong-ai-sales-coaching.html" class="article-card">
+    <div class="category">Sales</div>
+    <h3>Gong.io: AI Sales Coaching That Closes More Deals</h3>
+    <p>How to use Gong to analyze sales calls, identify winning patterns, and coach your team.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-accounting-automation.html" class="article-card">
+    <div class="category">Finance</div>
+    <h3>AI Accounting Automation: Spend Less Time on Books and More Time on Growth</h3>
+    <p>Use AI to automate invoicing, expense tracking, and financial reporting.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="higgsfield-ai-video-creation.html" class="article-card">
+    <div class="category">Video</div>
+    <h3>Higgsfield AI: Create Cinematic Videos Without a Camera</h3>
+    <p>How to use Higgsfield to create AI-generated videos for social media and ads.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="ai-hiring-recruitment.html" class="article-card">
+    <div class="category">HR</div>
+    <h3>AI for Hiring: Screen Resumes and Conduct First Interviews With AI</h3>
+    <p>Use AI to find better candidates, save time on screening, and make faster hires.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-project-management.html" class="article-card">
+    <div class="category">Productivity</div>
+    <h3>AI Project Management: Keep Projects on Track Without the Stress</h3>
+    <p>Use AI tools to plan, track, and deliver projects faster with less micromanagement.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="copy-ai-review.html" class="article-card">
+    <div class="category">Copywriting</div>
+    <h3>Copy.ai Review: Is It Worth It for Business Owners?</h3>
+    <p>An honest review of Copy.ai - what it does well, where it falls short, and who it's for.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="ai-marketing-automation-guide.html" class="article-card">
+    <div class="category">Marketing</div>
+    <h3>AI Marketing Automation: The Complete 2026 Playbook</h3>
+    <p>Automate your entire marketing workflow from social posts to email campaigns with AI.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="runway-gen4-video-creation.html" class="article-card">
+    <div class="category">Video</div>
+    <h3>Runway Gen-4.5: The AI Video Tool That Changes Everything</h3>
+    <p>A hands-on guide to Runway Gen-4.5 for creating professional AI-generated videos.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="ai-pricing-strategy.html" class="article-card">
+    <div class="category">Strategy</div>
+    <h3>How to Price Your AI Consulting Services in 2026</h3>
+    <p>From free calls to $5,000 projects - how to position and price your AI services.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="jasper-ai-review.html" class="article-card">
+    <div class="category">Copywriting</div>
+    <h3>Jasper AI Review: Enterprise Content Creation at Scale</h3>
+    <p>We spent a month with Jasper. Here's our honest take on features, pricing, and results.</p>
+    <div class="read-time">7 min read</div>
+  </a>
+  <a href="ai-SEO-guide-2026.html" class="article-card">
+    <div class="category">SEO</div>
+    <h3>AI SEO in 2026: Rank Higher on Google Without Hiring an Agency</h3>
+    <p>Use AI to research keywords, write optimized content, and outrank your competitors.</p>
+    <div class="read-time">8 min read</div>
+  </a>
+  <a href="ai-linkedin-growth.html" class="article-card">
+    <div class="category">Social Media</div>
+    <h3>AI for LinkedIn: Grow Your Professional Brand and Generate Leads</h3>
+    <p>Use AI to write posts, engage with your network, and turn LinkedIn into a lead machine.</p>
+    <div class="read-time">6 min read</div>
+  </a>
+  <a href="capcut-ai-editing-guide.html" class="article-card">
+    <div class="category">Video</div>
+    <h3>CapCut AI: Edit Videos Like a Pro for Free</h3>
+    <p>The complete guide to CapCut's AI features for creating viral social media videos.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+  <a href="ai-consulting-business-model.html" class="article-card">
+    <div class="category">Strategy</div>
+    <h3>Starting an AI Consulting Business: The Complete Blueprint</h3>
+    <p>How to build a profitable AI consulting business from scratch in 2026.</p>
+    <div class="read-time">9 min read</div>
+  </a>
+  <a href="calendly-ai-scheduling.html" class="article-card">
+    <div class="category">Productivity</div>
+    <h3>Calendly AI: Smart Scheduling That Maximizes Your Calendar</h3>
+    <p>Set up AI-powered booking, reminders, and follow-ups so you never miss a call.</p>
+    <div class="read-time">5 min read</div>
+  </a>
+</div>
+<footer>
+  <p>2026 Bacotti.AI - <a href="/">Take the Quiz</a> - <a href="/contact.html">Book a 1-on-1 Call</a></p>
+</footer>
+</body>
+</html>
