@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a 1-on-1 Call - Bacotti.AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #ffffff; --surface: #f5f5f5; --surface2: #eeeeee; --text: #000000; --text-muted: #666666; --border: #dddddd; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem; }
+    nav .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; color: #000; }
+    .logo span { text-decoration: underline wavy #ff8c00; text-underline-offset: 4px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn-nav { background: #000; color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
+    .hero { padding: 8rem 2rem 4rem; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+    .contact-section { max-width: 700px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; }
+    .contact-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .contact-card > p { color: var(--text-muted); margin-bottom: 2rem; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    .pricing-tier { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .pricing-tier.featured { border-color: #000; border-width: 2px; }
+    .pricing-tier h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .pricing-tier .price { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .pricing-tier .price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+    .pricing-tier ul { list-style: none; text-align: left; font-size: 0.85rem; color: var(--text-muted); }
+    .pricing-tier ul li { margin-bottom: 0.4rem; padding-left: 1.2rem; position: relative; }
+    .pricing-tier ul li::before { content: "v"; position: absolute; left: 0; color: #000; font-weight: 700; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; background: #fff; color: var(--text); transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #000; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit { width: 100%; padding: 1rem; background: #000; color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-submit:hover { background: #333; transform: translateY(-2px); }
+    .what-to-expect { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .what-to-expect h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+    .what-to-expect ol { color: var(--text-muted); font-size: 0.9rem; padding-left: 1.5rem; }
+    .what-to-expect ol li { margin-bottom: 0.5rem; }
+    footer { padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } nav ul { display: none; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a href="/" class="logo">Bacotti<span>.AI</span></a>
+    <div>
+      <a href="/articles/" style="margin-right:1.5rem;">Articles</a>
+      <a href="/#quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+  </div>
+</nav>
+<section class="hero">
+  <h1>Book a 1-on-1 Call</h1>
+  <p>Get personalized AI strategy advice from our team. No fluff. Just actionable steps for your business.</p>
+</section>
+<div class="contact-section">
+  <div class="contact-card">
+    <h2>Choose Your Session</h2>
+    <p>Pick what works best for where you are right now.</p>
+    <div class="pricing-grid">
+      <div class="pricing-tier">
+        <h3>Strategy Call</h3>
+        <div class="price">$97<span>/session</span></div>
+        <ul>
+          <li>30-minute video call</li>
+          <li>Personalized AI tool recommendations</li>
+          <li>Custom implementation roadmap</li>
+          <li>Follow-up email with action steps</li>
+        </ul>
+      </div>
+      <div class="pricing-tier featured">
+        <h3>Full Setup</h3>
+        <div class="price">$297<span>/session</span></div>
+        <ul>
+          <li>60-minute video call</li>
+          <li>We set up your AI tools together</li>
+          <li>Workflow automation built for you</li>
+          <li>30-day email support after</li>
+        </ul>
+      </div>
+    </div>
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="What should we call you?" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Business Type</label>
+        <select name="business" required>
+          <option value="">Select your business type</option>
+          <option>E-commerce / Online Store</option>
+          <option>Service Business (agency, consulting, freelance)</option>
+          <option>Content Creator / Influencer</option>
+          <option>Enterprise / Larger Organization</option>
+          <option>Local Business / Retail</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What are you hoping to accomplish?</label>
+        <textarea name="goals" placeholder="Tell us about your goals with AI - what do you want to automate, grow, or fix?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Preferred Session Type</label>
+        <select name="session" required>
+          <option value="strategy">Strategy Call - $97</option>
+          <option value="fullsetup">Full Setup - $297</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Request Session</button>
+    </form>
+    <div class="what-to-expect">
+      <h3>What to Expect After You Submit</h3>
+      <ol>
+        <li>We'll reply within 24 hours to confirm your session type and availability</li>
+        <li>You'll get a calendar link to book your preferred time</li>
+        <li>Before the call, we'll send a quick questionnaire so we can prepare</li>
+        <li>After the call, you'll get a written summary and next steps</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.btn-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Request Sent!';
+    btn.style.background = '#10b981';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = 'Request Session';
+      btn.style.background = '#000';
+      btn.disabled = false;
+    }, 3000);
+  }, 1500);
+}
+</script>
+</body>
+</html>
